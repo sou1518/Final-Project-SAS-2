@@ -1,0 +1,94 @@
+const prompt = require('prompt-sync')();
+// 1. Add a new candidate
+console.log("[1]. Ajouter un nouveau candidat: ");
+console.log("[2]. Ajouter plusieurs candidats a la fois: ");
+console.log("[3]. Afficher la liste des candidats: ");
+console.log("[4]. Voter pour un candidats: ");
+console.log("[5]. Modifier les infos: ");
+console.log("[6]. Supprimer un candidats: ");
+console.log("[7]. Recherche des candidats: ");
+console.log("[8]. Statistiques de l'election: ");
+console.log("[0]. Quitter: ");
+
+const candidats = [
+  { cin: "AB123456", lastName: "Boushaba", firstName: "Soufiane", politicalParty: "Independent", age: 40,
+    voters: [] },
+  { cin: "CD234567", lastName: "El Amrani", firstName: "Fatima Zahra", politicalParty: "PJD", age: 35,
+    voters: ["AB123456", "GH456789", "KL678901"] },
+  { cin: "EF345678", lastName: "Chraibi", firstName: "Younes", politicalParty: "RNI", age: 45,
+    voters: [] },
+  { cin: "GH456789", lastName: "Bennani", firstName: "Salma", politicalParty: "PAM", age: 29,
+    voters: ["IJ567890"] },
+  { cin: "IJ567890", lastName: "Ouahbi", firstName: "Karim", politicalParty: "Istiqlal", age: 52,
+    voters: [] },
+  { cin: "KL678901", lastName: "Ziani", firstName: "Nadia", politicalParty: "Independent", age: 33,
+    voters: [] },
+  { cin: "MN789012", lastName: "Tazi", firstName: "Hamza", politicalParty: "USFP", age: 60,
+    voters: ["QR901234"] },
+  { cin: "OP890123", lastName: "Idrissi", firstName: "Meryem", politicalParty: "PJD", age: 27,
+    voters: [] },
+  { cin: "QR901234", lastName: "Berrada", firstName: "Omar", politicalParty: "RNI", age: 38,
+    voters: ["CD234567", "EF345678", "MN789012"] },
+  { cin: "ST012345", lastName: "Fassi", firstName: "Khadija", politicalParty: "PAM", age: 31,
+    voters: [] },
+];
+
+function Addanewcandidat(){
+let CIN = prompt("What's your CIN : ");
+let lastName = prompt("What's your last name: ");
+let firstName = prompt("What's your first name: ");
+let politicalParty = prompt("What's your political party : ")
+let age = Number(prompt("How old are you : "))
+if(politicalParty===""){
+    politicalParty="Independent";
+}
+
+let candidat = {
+    CIN: CIN,
+	lastName: lastName,
+	firstName: firstName,
+	politicalParty: politicalParty,
+	age: age,
+	voters: []
+}
+candidats.push(candidat)
+}
+ajouterPlusieursCandidats();
+console.log(candidats)
+
+
+//2.Ajouter plusieurs candidats à la fois
+
+function ajouterPlusieursCandidats() {
+
+    let continuer = "oui";
+
+    while (continuer === "oui") {
+
+        Addanewcandidat();
+
+        continuer = prompt("Voulez-vous ajouter un autre candidat ? oui/non :");
+    }
+}
+
+
+//3. Afficher la liste des candidats
+
+function afficherCandidats() {
+
+    for (let i = 0; i < candidats.length; i++) {
+
+
+        console.log("CIN :", candidats[i].cin);
+        console.log("lastName :", candidats[i].lastName);
+        console.log("firstName :", candidats[i].firstName);
+        console.log("politicalParty :", candidats[i].politicalParty);
+        console.log("age :", candidats[i].age);
+        console.log("voters :", candidats[i].voters.length);
+      console.log("---------------------------------------------")
+         
+ }
+}
+afficherCandidats()
+console.log("test")
+
