@@ -92,3 +92,35 @@ function afficherCandidats() {
 afficherCandidats()
 console.log("test")
 
+//compare candidates by number of votes 
+function numofvotres(arry) {
+    for (let i = 0; i < arry.length - 1; i++) {
+
+        for (let j = 0; j < arry.length - i - 1; j++) {
+
+            if (arry[j].voters.length< arry[j + 1].voters.length) {
+                let temp = arry[j];
+                arry[j] = arry[j + 1];
+                arry[j + 1] = temp;
+            }
+        }
+    }
+    afficherCandidats(arry);
+}
+
+numofvotres(candidats);
+
+//Filter and display only the candidates
+
+function Filter(arr,SPP){
+    let res=[]
+    for(let i=0; i<arr.length; i++){
+        if(arr[i].politicalParty===SPP){
+            res.push(arr[i])
+        }
+    afficher(res)
+    }
+} 
+
+//4. Vote for a candidate
+
