@@ -151,3 +151,42 @@ else{
     console.log("candidat not found");
 }
 }
+//5. Edit a candidate's information
+
+function modifierCandidat() {
+
+    let cin = prompt("Entercandidat is cin : ");
+
+    let candidat = candidats.find(function(candidate) {
+        return candidate.cin === cin;
+    });
+
+    if (!candidat) {
+
+        console.log("Candidat introuvable.");
+        return;
+    }
+
+    let newParty = prompt("New party : ");
+    let newage = Number(prompt("New age : "));
+
+    candidat.politicalparty = newParty;
+    candidat.age = newage;
+
+    console.log("Candidat modified successfully !");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
