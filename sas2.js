@@ -124,3 +124,30 @@ function Filter(arr,SPP){
 
 //4. Vote for a candidate
 
+function voter(){
+let cinvoters = prompt("enter your CIN : ")
+let alreadyVoted = false
+for (let i = 0; i< cadidats.length; i++){
+if(candidats[i].voters.includes(cinvoters)){
+alreadyVoted = true
+break;
+}
+}
+
+if(alreadyVoted){
+    console.log("you have already voted you are not allowed to vote again");
+return;
+}
+let cincandidat = prompt("enter the candidat cin : ");
+let candidat = candidat.find(function(candidate) {
+    return condidate.cin === cincandidat;
+
+});
+if(candidat){
+candidat.voters.push(cinvoters)
+console.log("Vote recorded successfully")
+}
+else{
+    console.log("candidat not found");
+}
+}
