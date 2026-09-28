@@ -175,7 +175,19 @@ function modifierCandidat() {
 
     console.log("Candidat modified successfully !");
 }
-
+ //6. Delete a candidate
+ function deletecandidat(){
+let cin = prompt("enter the cin of the candidat to delete: ")
+    let index = candidats.finIndex(function(candidate){
+    return candidate.cin === cin
+    });
+    if(index === -1 ){
+        console.log("candidat not found")
+        return;
+    }
+    condidats.splice(index, 1);
+    console.log("condidat deleted successfully");
+}
 
 
 
