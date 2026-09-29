@@ -313,23 +313,23 @@ function rechercherCandidat() {
 }
 
 function Stati() {
-    console.log(colorer(`1: Afficher le nombre total de candidats. 
+    console.log(`1: Afficher le nombre total de candidats. 
 2 :Afficher le nombre total de votes exprimés dans toute l'élection
 3: Afficher le Top 3 des candidats ayant le plus de votes. 
-4: Afficher le nombre de candidats par parti politique`, couleurs.jaune))
-    let choi = Number(prompt(colorer("your choice : ", couleurs.cyan)))
+4: Afficher le nombre de candidats par parti politique`)
+    let choi = Number(prompt("your choice : "))
     if (choi === 1) {
         let k = 0
         for (let i = 0; i < candidats.length; i++) {
             k++
         }
-        console.log(colorer(`le total de candidats.: ${k}`, couleurs.vert))
+        console.log(`le total de candidats.: ${k}`)
     } else if (choi === 2) {
         let bb = 0
         for (let i = 0; i < candidats.length; i++) {
             bb += candidats[i].electeurs.length
         }
-        console.log(colorer(`total electeurs ${bb}`, couleurs.vert))
+        console.log(`total electeurs ${bb}`)
     } else if (choi === 3) {
         let listeTriee = [...candidats]
         for (let i = 0; i < listeTriee.length; i++) {
@@ -345,15 +345,15 @@ function Stati() {
         if (listeTriee.length < 3) {
             limite = listeTriee.length
         }
-        console.log(colorer(`Top 3 des candidats :`, couleurs.vert))
+        console.log(`Top 3 des candidats :`)
         for (let i = 0; i < limite; i++) {
-            console.log(colorer(`cin : ${listeTriee[i].cin}
+            console.log(`cin : ${listeTriee[i].cin}
             |nom : ${listeTriee[i].nom}
             |prenom : ${listeTriee[i].prenom}
             |partiPolitique : ${listeTriee[i].partiPolitique}
             |age : ${listeTriee[i].age}
             |Total : ${listeTriee[i].electeurs.length}
-            _________________________`, couleurs.gras))
+            _________________________`)
         }
     } else if (choi === 4) {
         let partis = []
@@ -376,12 +376,9 @@ function Stati() {
                     compteur++
                 }
             }
-            console.log(colorer(`${partis[i]} : ${compteur} candidat(s)`, couleurs.vert))
+            console.log(`${partis[i]} : ${compteur} candidat(s)`)
         }
     } else {
-        console.log(colorer("thats is not option ", couleurs.rouge))
+        console.log("thats is not option ")
     }
-}
-function colorer(texte, code) {
-    return code + texte + couleurs.resec
 }
